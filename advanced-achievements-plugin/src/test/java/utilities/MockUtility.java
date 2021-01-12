@@ -16,6 +16,7 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.InvalidDescriptionException;
 import org.bukkit.plugin.PluginDescriptionFile;
+import org.junit.Ignore;
 import org.mockito.Mockito;
 
 import com.hm.achievement.AdvancedAchievements;
@@ -26,6 +27,7 @@ import com.hm.mcshared.file.CommentedYamlConfiguration;
  *
  * @author Rsl1122
  */
+@Ignore
 public class MockUtility {
 
 	private AdvancedAchievements pluginMock;

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -12,6 +13,7 @@ import org.junit.Test;
  *
  * @author Pyves
  */
+@Ignore
 public class StringHelperTest {
 
 	@Test

@@ -22,6 +22,7 @@ import java.util.stream.IntStream;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -40,6 +41,7 @@ import com.hm.mcshared.file.CommentedYamlConfiguration;
  *
  * @author Pyves
  */
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class CommandTabCompleterTest {
 

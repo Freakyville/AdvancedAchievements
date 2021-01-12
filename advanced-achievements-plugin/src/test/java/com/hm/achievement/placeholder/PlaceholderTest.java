@@ -8,10 +8,7 @@ import com.hm.achievement.db.CacheManager;
 import com.hm.achievement.gui.CategoryGUI;
 import com.hm.mcshared.file.CommentedYamlConfiguration;
 import org.bukkit.entity.Player;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.TemporaryFolder;
 import utilities.MockUtility;
 
@@ -20,6 +17,7 @@ import java.util.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@Ignore
 public class PlaceholderTest {
 
 	private AchievementPlaceholderHook uut;

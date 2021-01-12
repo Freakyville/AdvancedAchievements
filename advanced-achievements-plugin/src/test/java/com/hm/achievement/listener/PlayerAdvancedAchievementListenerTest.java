@@ -38,6 +38,7 @@ import utilities.MockUtility;
  *
  * @author Pyves
  */
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class PlayerAdvancedAchievementListenerTest {
 

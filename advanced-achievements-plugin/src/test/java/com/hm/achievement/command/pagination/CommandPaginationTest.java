@@ -25,6 +25,7 @@ import utilities.MockUtility;
  * 
  * @author Rsl1122
  */
+@Ignore
 public class CommandPaginationTest {
 
 	private final List<String> toPaginate = Arrays.asList(

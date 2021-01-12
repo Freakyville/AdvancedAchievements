@@ -5,6 +5,7 @@ import static org.junit.Assert.assertThrows;
 
 import java.util.UUID;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,6 +19,7 @@ import com.hm.achievement.category.NormalAchievements;
  *
  * @author Pyves
  */
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class AdvancedAchievementsBukkitAPINullSafetyTest {
 

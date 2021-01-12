@@ -3,15 +3,12 @@ package com.hm.achievement.cache;
 import com.hm.achievement.achievement.Achievement;
 import com.hm.achievement.db.AchievementCache;
 import com.hm.mcshared.file.CommentedYamlConfiguration;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.TemporaryFolder;
 import utilities.MockUtility;
 
 import java.util.Set;
-
+@Ignore
 public class AchievementCacheTest {
 
 	private AchievementCache uut;

@@ -27,6 +27,7 @@ import utilities.MockUtility;
  *
  * @author Rsl1122
  */
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class SQLiteDatabaseBasicTest extends SQLiteDatabaseTest {
 

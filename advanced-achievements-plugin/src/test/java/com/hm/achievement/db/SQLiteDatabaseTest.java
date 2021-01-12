@@ -8,8 +8,10 @@ import java.util.logging.Logger;
 
 import com.google.common.util.concurrent.MoreExecutors;
 
+import org.junit.Ignore;
 import utilities.MockUtility;
 
+@Ignore
 public class SQLiteDatabaseTest {
 
 	static SQLiteDatabaseManager db;

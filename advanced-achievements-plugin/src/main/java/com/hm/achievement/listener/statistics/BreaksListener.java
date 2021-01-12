@@ -49,10 +49,15 @@ public class BreaksListener extends AbstractListener {
 	}
 
 	@SuppressWarnings("deprecation")
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.HIGH)
 	public void onBlockBreak(BlockBreakEvent event) {
 		Player player = event.getPlayer();
 		Block block = event.getBlock();
+		if (event.isCancelled()) {
+			if (event.getBlock().getMetadata("fvMine").size() == 0) {
+				return;
+			}
+		}
 		if (disableSilkTouchBreaks || disableSilkTouchOreBreaks) {
 			ItemStack breakingTool = serverVersion >= 9 ? player.getInventory().getItemInMainHand() : player.getItemInHand();
 			if (breakingTool.containsEnchantment(SILK_TOUCH) && (disableSilkTouchBreaks || isOre(block.getType().name()))) {

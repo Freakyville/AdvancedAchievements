@@ -2,6 +2,7 @@ package com.hm.achievement.advancement;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.hm.achievement.advancement.AchievementAdvancement.AchievementAdvancementBuilder;
@@ -11,6 +12,7 @@ import com.hm.achievement.advancement.AchievementAdvancement.AchievementAdvancem
  *
  * @author Pyves
  */
+@Ignore
 public class AdvancementJsonHelperTest {
 
 	@Test

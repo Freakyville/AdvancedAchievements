@@ -1,6 +1,7 @@
 package com.hm.achievement.lang;
 
 import com.hm.achievement.lang.command.HelpLang;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import static org.junit.Assert.assertEquals;
  * 
  * @author Rsl1122
  */
+@Ignore
 public class HelpLangTest {
 
 	@Test

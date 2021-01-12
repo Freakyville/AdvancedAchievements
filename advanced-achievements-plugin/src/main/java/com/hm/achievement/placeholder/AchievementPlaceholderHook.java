@@ -2,6 +2,7 @@ package com.hm.achievement.placeholder;
 
 import com.hm.achievement.AdvancedAchievements;
 import com.hm.achievement.achievement.Achievement;
+import com.hm.achievement.category.CommandAchievements;
 import com.hm.achievement.category.MultipleAchievements;
 import com.hm.achievement.category.NormalAchievements;
 import com.hm.achievement.db.AbstractDatabaseManager;
@@ -121,6 +122,12 @@ public class AchievementPlaceholderHook extends PlaceholderExpansion {
 		if (achievement == null)
 			return null;
 		MultipleAchievements type = MultipleAchievements.getByName(achievement.getCategory());
+		String commandPath = CommandAchievements.COMMANDS + "." + aName;
+		if (mainConfig.contains(commandPath)) {
+			String achievementCommandName = mainConfig.getString(commandPath + ".Name");
+			boolean hasAchievement = cacheManager.hasPlayerAchievement(uuid, achievementCommandName);
+			return categoryGUI.constructProgressBar("" + 1,  hasAchievement ? 1 : 0, false);
+		}
 
 		if (type == null) {
 			long progress = getProgress(uuid, achievement);
