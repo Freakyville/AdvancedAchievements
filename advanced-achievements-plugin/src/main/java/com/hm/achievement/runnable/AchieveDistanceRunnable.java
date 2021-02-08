@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.function.BiConsumer;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -34,6 +35,7 @@ import com.hm.mcshared.file.CommentedYamlConfiguration;
 public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements Cleanable, Runnable {
 
 	private final Map<UUID, Location> playerLocations = new HashMap<>();
+	private final Map<EntityType, BiConsumer<Integer, Player>> entityTypeBiConsumerMap = new HashMap<>();
 	private final Set<Category> disabledCategories;
 
 	private boolean configIgnoreVerticalDistance;
@@ -44,6 +46,10 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 			Set<Category> disabledCategories) {
 		super(mainConfig, serverVersion, sortedThresholds, cacheManager, rewardParser);
 		this.disabledCategories = disabledCategories;
+		entityTypeBiConsumerMap.put(EntityType.HORSE, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCEHORSE));
+		entityTypeBiConsumerMap.put(EntityType.PIG, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCEPIG));
+		entityTypeBiConsumerMap.put(EntityType.MINECART, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCEMINECART));
+		entityTypeBiConsumerMap.put(EntityType.LLAMA, (dist, p) -> updateDistance(dist, p, NormalAchievements.DISTANCELLAMA));
 	}
 
 	@Override
@@ -89,7 +95,10 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 
 		if (player.isInsideVehicle()) {
 			EntityType vehicleType = player.getVehicle().getType();
-			if (vehicleType == EntityType.HORSE) {
+			if (entityTypeBiConsumerMap.containsKey(vehicleType)) {
+				entityTypeBiConsumerMap.get(vehicleType).accept(difference, player);
+			}
+			/*if (vehicleType == EntityType.HORSE) {
 				updateDistance(difference, player, NormalAchievements.DISTANCEHORSE);
 			} else if (vehicleType == EntityType.PIG) {
 				updateDistance(difference, player, NormalAchievements.DISTANCEPIG);
@@ -99,7 +108,7 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 				updateDistance(difference, player, NormalAchievements.DISTANCEBOAT);
 			} else if (serverVersion >= 11 && vehicleType == EntityType.LLAMA) {
 				updateDistance(difference, player, NormalAchievements.DISTANCELLAMA);
-			}
+			}*/
 		} else if (serverVersion >= 9 && player.isGliding()) {
 			updateDistance(difference, player, NormalAchievements.DISTANCEGLIDING);
 		} else if (!player.isFlying()) {
@@ -122,7 +131,7 @@ public class AchieveDistanceRunnable extends StatisticIncreaseHandler implements
 			double zSquared = NumberConversions.square(previousLocation.getZ() - currentLocation.getZ());
 			return (int) Math.sqrt(xSquared + zSquared);
 		} else {
-			return (int) previousLocation.distance(currentLocation);
+			return (int) previousLocation.distance(currentLocation); //TODO check if we can do sqrd instead
 		}
 	}
 
