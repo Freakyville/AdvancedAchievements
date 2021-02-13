@@ -56,7 +56,7 @@ public enum NormalAchievements implements Category {
 	private static final Map<String, NormalAchievements> CATEGORY_NAMES_TO_ENUM = new HashMap<>();
 	static {
 		for (NormalAchievements category : NormalAchievements.values()) {
-			CATEGORY_NAMES_TO_ENUM.put(category.categoryName, category);
+			CATEGORY_NAMES_TO_ENUM.put(category.categoryName.toUpperCase(), category);
 		}
 	}
 
@@ -87,7 +87,7 @@ public enum NormalAchievements implements Category {
 	 * @return a category or null if not found
 	 */
 	public static NormalAchievements getByName(String categoryName) {
-		return CATEGORY_NAMES_TO_ENUM.get(categoryName);
+		return CATEGORY_NAMES_TO_ENUM.get(categoryName.toUpperCase());
 	}
 
 	@Override
