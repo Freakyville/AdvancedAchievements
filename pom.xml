@@ -112,8 +112,8 @@
 			<url>https://raw.github.com/PyvesB/MCShared/mvn-repo/</url>
 		</repository>
 		<repository>
-			<id>placeholderapi-repo</id>
-			<url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+			<id>placeholderapi</id>
+			<url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
 		</repository>
 		<repository>
 			<id>spigot-repo</id>
